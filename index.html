@@ -3,271 +3,310 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Purpose</title>
+    <title>Simple Work Time Tracker (V4 - With Notes)</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
         body {
             font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
         }
-        .chart-container {
-            position: relative;
-            width: 100%;
-            max-width: 500px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 300px;
-            max-height: 400px;
-        }
-        @media (min-width: 768px) {
-            .chart-container {
-                height: 350px;
-            }
-        }
+        /* Energetic & Playful Palette */
+        .text-palette-dark { color: #073B4C; }
+        .bg-palette-green { background-color: #06D6A0; }
+        .hover\:bg-palette-green-dark:hover { background-color: #05b383; }
+        .bg-palette-red { background-color: #FF6B6B; }
+        .hover\:bg-palette-red-dark:hover { background-color: #e65252; }
+        .bg-palette-blue { background-color: #118AB2; }
+        .hover\:bg-palette-blue-dark:hover { background-color: #0e6c8e; }
     </style>
 </head>
-<body class="bg-gray-100 text-gray-800">
+<body class="min-h-screen flex items-center justify-center p-4">
 
-    <div class="container mx-auto p-4 md:p-8">
+    <div class="w-full max-w-lg bg-white rounded-xl shadow-2xl p-6 md:p-8">
+        
+        <h1 class="text-3xl font-extrabold text-center text-palette-dark mb-2">Work Time Tracker</h1>
+        <p class="text-center text-gray-500 mb-8">Use the dedicated buttons to start, pause, and log your time.</p>
 
-        <header class="text-center mb-12">
-            <h1 class="text-5xl font-bold text-orange-600">My Purpose</h1>
-            <p class="text-xl text-gray-600 mt-2">A Visual Guide for Daily Motivation</p>
-        </header>
-
-        <section id="core-mission" class="bg-white rounded-lg shadow-lg p-6 md:p-8 mb-12">
-            <h2 class="text-3xl font-bold text-center text-orange-500 mb-4">My Core Mission</h2>
-            <p class="text-center text-lg max-w-3xl mx-auto mb-6">To live each day in a way that honors my Creator, building a meaningful friendship with Him. This mission is the foundation of my actions and the source of my daily strength.</p>
-            <div class="chart-container h-64 md:h-80">
-                <canvas id="coreMissionChart"></canvas>
-            </div>
-        </section>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
-
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <div class="flex items-center mb-4">
-                    <span class="text-4xl mr-4">❤️</span>
-                    <h3 class="text-2xl font-bold text-yellow-500">Love God</h3>
-                </div>
-                <p class="mb-4">To love Jehovah with my whole heart, soul, and mind. This chart illustrates the complete devotion required, balancing all aspects of my being in my worship.</p>
-                <div class="chart-container">
-                    <canvas id="loveGodChart"></canvas>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-lg p-6">
-                <div class="flex items-center mb-4">
-                    <span class="text-4xl mr-4">🤝</span>
-                    <h3 class="text-2xl font-bold text-pink-500">Love People</h3>
-                </div>
-                <p class="mb-4">To treat my neighbor with genuine love, kindness, and fairness. These actions are the practical application of my faith and a reflection of my core mission.</p>
-                <div class="chart-container">
-                    <canvas id="lovePeopleChart"></canvas>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-lg shadow-lg p-6 md:col-span-2">
-                 <div class="flex items-center mb-4">
-                    <span class="text-4xl mr-4">📖</span>
-                    <h3 class="text-2xl font-bold text-orange-600">Live by His Word</h3>
-                </div>
-                <p class="mb-6">To use the Bible as my guide, obeying its commands and principles. This is a daily process of learning and application, leading to a life that is in harmony with my Creator's will.</p>
-                <div class="flex flex-col md:flex-row justify-around items-center text-center">
-                    <div class="flex flex-col items-center p-4">
-                        <div class="bg-yellow-100 text-yellow-600 rounded-full h-24 w-24 flex items-center justify-center text-4xl font-bold">1</div>
-                        <p class="mt-3 font-semibold">Read the Word Daily</p>
-                    </div>
-                    <div class="text-4xl text-gray-400 mx-4 hidden md:block">&rarr;</div>
-                     <div class="text-4xl text-gray-400 my-2 md:hidden">&darr;</div>
-                    <div class="flex flex-col items-center p-4">
-                        <div class="bg-pink-100 text-pink-600 rounded-full h-24 w-24 flex items-center justify-center text-4xl font-bold">2</div>
-                        <p class="mt-3 font-semibold">Apply Its Principles</p>
-                    </div>
-                     <div class="text-4xl text-gray-400 mx-4 hidden md:block">&rarr;</div>
-                     <div class="text-4xl text-gray-400 my-2 md:hidden">&darr;</div>
-                    <div class="flex flex-col items-center p-4">
-                        <div class="bg-orange-100 text-orange-600 rounded-full h-24 w-24 flex items-center justify-center text-4xl font-bold">3</div>
-                        <p class="mt-3 font-semibold">Live in Harmony</p>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="bg-white rounded-lg shadow-lg p-6 md:col-span-2">
-                <div class="flex items-center mb-4">
-                    <span class="text-4xl mr-4">☀️</span>
-                    <h3 class="text-2xl font-bold text-yellow-600">Reflect Hope</h3>
-                </div>
-                <p class="mb-4">To find joy and purpose in the hope of God's coming Kingdom and a paradise earth. This hope is an anchor, providing stability and an upward trend of joy over time.</p>
-                <div class="chart-container h-80">
-                    <canvas id="reflectHopeChart"></canvas>
-                </div>
+        <!-- Current Session Time Display -->
+        <div class="text-center mb-6 p-6 bg-gray-50 rounded-lg border-2 border-palette-blue/20">
+            <h2 class="text-xl font-semibold text-gray-600 mb-2">Current Session Time:</h2>
+            <div id="display" class="text-6xl md:text-7xl font-mono font-extrabold text-palette-dark">
+                00:00:00
             </div>
         </div>
+        
+        <!-- Note Input Field -->
+        <div class="mb-6">
+            <label for="sessionNote" class="block text-sm font-medium text-gray-700 mb-2">Session Note (What did you work on?)</label>
+            <textarea id="sessionNote" rows="2" class="w-full p-2 border border-gray-300 rounded-lg focus:ring-palette-blue focus:border-palette-blue" placeholder="e.g., Finished debugging the login module"></textarea>
+        </div>
+
+        <div class="flex flex-col space-y-4">
+            
+            <!-- 1. START/RESUME BUTTON -->
+            <button id="startButton" class="w-full py-4 text-white font-bold rounded-xl shadow-lg transition duration-150 ease-in-out bg-palette-green hover:bg-palette-green-dark transform hover:scale-[1.01]">
+                START
+            </button>
+
+            <!-- 2. PAUSE BUTTON -->
+            <button id="pauseButton" disabled class="w-full py-4 text-white font-bold rounded-xl shadow-lg transition duration-150 ease-in-out bg-palette-blue hover:bg-palette-blue-dark disabled:opacity-50 disabled:cursor-not-allowed">
+                PAUSE
+            </button>
+
+            <!-- 3. RESET / LOG TIME BUTTON -->
+            <button id="resetButton" disabled class="w-full py-3 text-palette-dark font-semibold rounded-xl transition duration-150 ease-in-out bg-gray-200 hover:bg-palette-red/30 disabled:opacity-50 disabled:cursor-not-allowed">
+                RESET (LOG & SAVE NOTE)
+            </button>
+        </div>
+
+        <div id="statusMessage" class="mt-4 text-center text-sm font-semibold text-palette-green"></div>
+        
+        <!-- Total Time Logged Display -->
+        <div class="mt-4 pt-6 border-t border-gray-200 text-center">
+             <h2 class="text-lg font-semibold text-gray-600">Total Time Logged:</h2>
+             <div id="totalTime" class="text-2xl font-extrabold text-palette-blue">00:00:00</div>
+        </div>
+
+        <!-- Session History Display -->
+        <div class="mt-6 pt-6 border-t border-gray-200">
+            <h2 class="text-lg font-semibold text-gray-600 mb-3 text-center">Session History</h2>
+            <ul id="logHistory" class="space-y-2 max-h-48 overflow-y-auto p-2 bg-gray-50 rounded-lg border border-gray-200">
+                <!-- History items will be inserted here by JavaScript -->
+                <li class="text-sm text-gray-500 text-center">No sessions logged yet.</li>
+            </ul>
+        </div>
+        <div class="mt-4 text-center">
+            <button id="clearAllButton" class="text-xs text-palette-red hover:underline disabled:opacity-50" disabled>Clear All History</button>
+        </div>
+
     </div>
 
     <script>
-        const vibrantPalette = {
-            orange: '#FF6347',
-            yellow: '#FFD700',
-            pink: '#FF69B4',
-            lightOrange: 'rgba(255, 99, 71, 0.2)',
-            lightYellow: 'rgba(255, 215, 0, 0.2)',
-            lightPink: 'rgba(255, 105, 180, 0.2)'
-        };
+        let timer;
+        let startTime = 0;
+        let elapsed = 0;
+        let isRunning = false;
+        let workLogEntries = []; // Array to store {time: ms, note: string, date: timestamp}
 
-        const tooltipTitleCallback = function(tooltipItems) {
-            const item = tooltipItems[0];
-            let label = item.chart.data.labels[item.dataIndex];
-            if (Array.isArray(label)) {
-                return label.join(' ');
+        // DOM Elements
+        const display = document.getElementById('display');
+        const totalTimeDisplay = document.getElementById('totalTime');
+        const startButton = document.getElementById('startButton');
+        const pauseButton = document.getElementById('pauseButton');
+        const resetButton = document.getElementById('resetButton');
+        const sessionNoteInput = document.getElementById('sessionNote');
+        const statusMessage = document.getElementById('statusMessage');
+        const logHistoryList = document.getElementById('logHistory');
+        const clearAllButton = document.getElementById('clearAllButton');
+
+        function formatTime(ms) {
+            const totalSeconds = Math.floor(ms / 1000);
+            const hours = Math.floor(totalSeconds / 3600);
+            const minutes = Math.floor((totalSeconds % 3600) / 60);
+            const seconds = totalSeconds % 60;
+
+            const pad = (num) => String(num).padStart(2, '0');
+            return `${pad(hours)}:${pad(minutes)}:${pad(seconds)}`;
+        }
+
+        function updateDisplay() {
+            display.textContent = formatTime(elapsed);
+        }
+        
+        function updateTotals() {
+            let totalMs = 0;
+            if (workLogEntries.length > 0) {
+                totalMs = workLogEntries.reduce((sum, entry) => sum + entry.time, 0);
+            }
+            totalTimeDisplay.textContent = formatTime(totalMs);
+            
+            // Enable/Disable clear button
+            clearAllButton.disabled = workLogEntries.length === 0;
+        }
+
+        function renderLogHistory() {
+            logHistoryList.innerHTML = '';
+            
+            if (workLogEntries.length === 0) {
+                logHistoryList.innerHTML = '<li class="text-sm text-gray-500 text-center p-2">No sessions logged yet.</li>';
+                return;
+            }
+
+            // Display newest entries first
+            workLogEntries.slice().reverse().forEach(entry => {
+                const date = new Date(entry.date);
+                const timeString = formatTime(entry.time);
+                const dateString = date.toLocaleDateString() + ' ' + date.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                
+                const listItem = document.createElement('li');
+                listItem.className = 'bg-white p-3 rounded-md shadow-sm border border-gray-100';
+                listItem.innerHTML = `
+                    <p class="font-bold text-palette-dark flex justify-between items-center">
+                        <span>${timeString}</span>
+                        <span class="text-xs font-normal text-gray-400">${dateString}</span>
+                    </p>
+                    <p class="text-sm text-gray-600 mt-1">${entry.note || 'No note provided'}</p>
+                `;
+                logHistoryList.appendChild(listItem);
+            });
+        }
+
+        function updateButtonStates() {
+            if (isRunning) {
+                startButton.disabled = true;
+                pauseButton.disabled = false;
+                resetButton.disabled = true; 
+                startButton.textContent = 'RUNNING...';
             } else {
-                return label;
+                startButton.disabled = false;
+                pauseButton.disabled = true;
+                
+                if (elapsed > 0) {
+                    startButton.textContent = 'RESUME';
+                    resetButton.disabled = false; 
+                } else {
+                    startButton.textContent = 'START WORK';
+                    resetButton.disabled = true; 
+                }
             }
+        }
+
+        function saveState() {
+            localStorage.setItem('elapsed', elapsed);
+            localStorage.setItem('isRunning', isRunning);
+            localStorage.setItem('workLogEntries', JSON.stringify(workLogEntries)); // Save structured data
+
+            if (isRunning) {
+                localStorage.setItem('startTime', startTime);
+            } else {
+                localStorage.removeItem('startTime');
+            }
+        }
+
+        function loadState() {
+            const savedElapsed = localStorage.getItem('elapsed');
+            const savedIsRunning = localStorage.getItem('isRunning') === 'true';
+            const savedStartTime = localStorage.getItem('startTime');
+            const savedLogEntries = localStorage.getItem('workLogEntries');
+            
+            if (savedLogEntries) {
+                // Load log history
+                workLogEntries = JSON.parse(savedLogEntries);
+            }
+            
+            if (savedElapsed !== null) {
+                elapsed = parseInt(savedElapsed);
+                updateDisplay();
+            }
+
+            if (savedIsRunning && savedStartTime !== null) {
+                startTime = parseInt(savedStartTime);
+                isRunning = true;
+                const timeSinceStart = Date.now() - startTime;
+                elapsed += timeSinceStart;
+                timer = setInterval(tick, 1000);
+            } 
+            
+            updateTotals();
+            renderLogHistory();
+            updateButtonStates();
+        }
+
+        function startTimer() {
+            if (isRunning) return;
+
+            // FIX: Set the new startTime to current time minus the already elapsed time.
+            startTime = Date.now() - elapsed; 
+            isRunning = true;
+            
+            statusMessage.textContent = ''; 
+
+            timer = setInterval(tick, 1000);
+            updateButtonStates();
+            saveState();
+        }
+
+        function tick() {
+            elapsed = Date.now() - startTime;
+            updateDisplay();
+            saveState();
+        }
+
+        function pauseTimer() {
+            if (!isRunning) return;
+
+            clearInterval(timer);
+            isRunning = false;
+            
+            elapsed = Date.now() - startTime; 
+            
+            updateButtonStates();
+            saveState();
+        }
+
+        function resetTimer() {
+            // Must be paused to log
+            if (isRunning || elapsed === 0) return;
+
+            const timeLogged = elapsed;
+            const note = sessionNoteInput.value.trim() || 'No note provided';
+            
+            const newEntry = {
+                time: timeLogged,
+                note: note,
+                date: Date.now() 
+            };
+            
+            // Add new entry to the log array
+            workLogEntries.push(newEntry);
+
+            // Reset current session
+            pauseTimer(); 
+            elapsed = 0;
+            updateDisplay();
+            sessionNoteInput.value = '';
+
+            // Update local storage and display
+            localStorage.removeItem('elapsed');
+            localStorage.removeItem('isRunning');
+            localStorage.removeItem('startTime');
+            
+            saveState();
+            updateTotals();
+            renderLogHistory();
+
+            // Show confirmation message
+            statusMessage.textContent = `Success! Logged ${formatTime(timeLogged)} with note to history.`;
+            setTimeout(() => {
+                statusMessage.textContent = '';
+            }, 4000);
+
+            updateButtonStates();
+        }
+        
+        function clearAllHistory() {
+            if (confirm('Are you sure you want to clear all logged time and notes? This action cannot be undone.')) {
+                localStorage.removeItem('workLogEntries');
+                workLogEntries = [];
+                updateTotals();
+                renderLogHistory();
+                statusMessage.textContent = 'All history cleared!';
+                setTimeout(() => { statusMessage.textContent = ''; }, 3000);
+            }
+        }
+
+
+        // Attach Event Listeners
+        startButton.addEventListener('click', startTimer);
+        pauseButton.addEventListener('click', pauseTimer);
+        resetButton.addEventListener('click', resetTimer);
+        clearAllButton.addEventListener('click', clearAllHistory);
+
+        // Initialization
+        window.onload = () => {
+            loadState();
         };
-        
-        const coreMissionCtx = document.getElementById('coreMissionChart').getContext('2d');
-        new Chart(coreMissionCtx, {
-            type: 'doughnut',
-            data: {
-                labels: ['Honoring Creator', 'Building Friendship', 'Daily Actions'],
-                datasets: [{
-                    data: [40, 35, 25],
-                    backgroundColor: [vibrantPalette.orange, vibrantPalette.yellow, vibrantPalette.pink],
-                    borderColor: '#FFFFFF',
-                    borderWidth: 4,
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                plugins: {
-                    legend: {
-                        position: 'bottom',
-                    },
-                    tooltip: {
-                        callbacks: {
-                            title: tooltipTitleCallback
-                        }
-                    }
-                },
-                cutout: '70%'
-            }
-        });
-
-        const loveGodCtx = document.getElementById('loveGodChart').getContext('2d');
-        new Chart(loveGodCtx, {
-            type: 'radar',
-            data: {
-                labels: ['Heart', 'Soul', 'Mind', 'Strength'],
-                datasets: [{
-                    label: 'Devotion',
-                    data: [90, 85, 95, 80],
-                    backgroundColor: vibrantPalette.lightYellow,
-                    borderColor: vibrantPalette.yellow,
-                    pointBackgroundColor: vibrantPalette.yellow,
-                    pointBorderColor: '#fff',
-                    pointHoverBackgroundColor: '#fff',
-                    pointHoverBorderColor: vibrantPalette.yellow
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    r: {
-                        angleLines: { color: 'rgba(0, 0, 0, 0.1)' },
-                        grid: { color: 'rgba(0, 0, 0, 0.1)' },
-                        pointLabels: { font: { size: 14 } },
-                        suggestedMin: 0,
-                        suggestedMax: 100
-                    }
-                },
-                plugins: {
-                    legend: {
-                       display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            title: tooltipTitleCallback
-                        }
-                    }
-                }
-            }
-        });
-
-        const lovePeopleCtx = document.getElementById('lovePeopleChart').getContext('2d');
-        new Chart(lovePeopleCtx, {
-            type: 'bar',
-            data: {
-                labels: ['Kindness', 'Fairness', 'Love', 'Empathy'],
-                datasets: [{
-                    label: 'Daily Actions',
-                    data: [85, 90, 95, 80],
-                    backgroundColor: [vibrantPalette.lightPink, vibrantPalette.lightOrange, vibrantPalette.lightPink, vibrantPalette.lightYellow],
-                    borderColor: [vibrantPalette.pink, vibrantPalette.orange, vibrantPalette.pink, vibrantPalette.yellow],
-                    borderWidth: 2
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        suggestedMax: 100
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            title: tooltipTitleCallback
-                        }
-                    }
-                }
-            }
-        });
-        
-        const reflectHopeCtx = document.getElementById('reflectHopeChart').getContext('2d');
-        new Chart(reflectHopeCtx, {
-            type: 'line',
-            data: {
-                labels: ['Start', 'Journey', 'Growth', 'Consistency', 'Future'],
-                datasets: [{
-                    label: 'Joy & Purpose',
-                    data: [20, 45, 60, 80, 95],
-                    fill: true,
-                    backgroundColor: vibrantPalette.lightOrange,
-                    borderColor: vibrantPalette.orange,
-                    tension: 0.4
-                }]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    y: {
-                        beginAtZero: true,
-                        suggestedMax: 100
-                    }
-                },
-                plugins: {
-                    legend: {
-                        display: false
-                    },
-                    tooltip: {
-                        callbacks: {
-                            title: tooltipTitleCallback
-                        }
-                    }
-                }
-            }
-        });
     </script>
 </body>
 </html>
